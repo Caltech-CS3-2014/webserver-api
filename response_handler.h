@@ -25,5 +25,5 @@ class ResponseHandlerInterface {
   // Parses a HTTP request and generates a HTTP response to the request.
   // Returns true if successful.
   virtual bool HandleRequest(const std::string& request,
-  	                         std::string* response) = 0;
+                             std::string* response) = 0;
 };
