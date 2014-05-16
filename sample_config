@@ -1,5 +1,13 @@
 port 8080;
 
+# The dispatch mechanism does substring matching on the
+# specified locations, in order, and dispatches to the first
+# one that matches.
+# For example:
+# * /static/foo matches /static/ and will dispatch to the first static
+#   file handler
+# * /foo will match "/" and will dispatch to the 404Handler.
+
 location /static/ {
   handler StaticFileHandler;
   document_root /foo/bar;
