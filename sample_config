@@ -1,0 +1,19 @@
+port 8080;
+
+location /static/ {
+  handler StaticFileHandler;
+  document_root /foo/bar;
+}
+
+location /static2/ {
+  handler StaticFileHandler;
+  document_root /a/b/c;
+}
+
+location /echo {
+  handler EchoHandler;
+}
+
+location / {
+  handler 404Handler;
+}
