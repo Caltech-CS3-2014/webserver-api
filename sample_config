@@ -8,20 +8,22 @@ port 8080;
 #   file handler
 # * /foo will match "/" and will dispatch to the 404Handler.
 
-location /static/ {
-  handler StaticFileHandler;
+
+
+handler StaticFileHandler {
+  location /static/;
   document_root /foo/bar;
 }
 
-location /static2/ {
-  handler StaticFileHandler;
+handler StaticFileHandler {
+  location /static2/;
   document_root /a/b/c;
 }
 
-location /echo {
-  handler EchoHandler;
+handler EchoHandler {
+  location /echo;
 }
 
-location / {
-  handler 404Handler;
+handler Http404Handler {
+  location /;
 }
