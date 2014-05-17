@@ -1,14 +1,23 @@
-port 8080;
-
-# The dispatch mechanism does substring matching on the
-# specified locations, in order, and dispatches to the first
-# one that matches.
+# The dispatch mechanism does substring matching on the locations for the
+# handlers, in the order they appear in the config file, and dispatches to the
+# first one that matches.
+#
 # For example:
 # * /static/foo matches /static/ and will dispatch to the first static
 #   file handler
 # * /foo will match "/" and will dispatch to the 404Handler.
+#
+# The general syntax of a handler stanza is:
+#
+# handler <handler class name> {
+#   location <url prefix>;
+#   <other configs>
+# }
+#
+# The <other configs> will depend on the particular handler class, and will be
+# interpreted by the handler's Initialize() method.
 
-
+port 8080;
 
 handler StaticFileHandler {
   location /static/;
